@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buy The Vision AR Glasses</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            primary: '#1d1d1f',
+            secondary: '#86868b',
+            accent: '#0071e3',
+            light: '#f5f5f7',
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.6s ease-in-out',
+            'slide-up': 'slideUp 0.8s ease-out',
+            'bounce-subtle': 'bounceTiny 2s infinite',
+          },
+          transitionTimingFunction: {
+            'in-expo': 'cubic-bezier(0.95, 0.05, 0.795, 0.035)',
+            'out-expo': 'cubic-bezier(0.19, 1, 0.22, 1)',
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+</head>
+<body class="bg-light text-primary font-sans overflow-x-hidden">
+ <!-- Navbar -->
+ <header class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/20">
+    <div class="container mx-auto px-6 py-4">
+      <nav class="flex justify-between items-center">
+        <div class="flex items-center">
+          <a href="index.html" class="text-xl font-semibold tracking-tight">Vision AR</a>
+        </div>
+        <ul class="hidden md:flex space-x-8 text-sm font-medium">
+          <li class="group relative">
+            <a href="index.html" 
+               class="nav-link inline-block px-2 py-1 text-primary hover:text-accent transition-all duration-300 relative">
+              Home
+              <span class="active-underline absolute inset-x-0 -bottom-1 h-0.5 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            </a>
+          </li>
+          <li class="group relative">
+            <a href="about.html" 
+               class="nav-link inline-block px-2 py-1 text-primary hover:text-accent transition-all duration-300 relative">
+              About Us
+              <span class="active-underline absolute inset-x-0 -bottom-1 h-0.5 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            </a>
+          </li>
+          <li class="group relative">
+            <a href="buy.html"
+               class="nav-link inline-block px-2 py-1 text-primary hover:text-accent transition-all duration-300 relative">
+              Buy Now
+              <span class="active-underline absolute inset-x-0 -bottom-1 h-0.5 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            </a>
+          </li>
+          <li class="group relative">
+            <a href="contact.html" 
+               class="nav-link inline-block px-2 py-1 text-primary hover:text-accent transition-all duration-300 relative">
+              Contact Us
+              <span class="active-underline absolute inset-x-0 -bottom-1 h-0.5 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            </a>
+          </li>
+        </ul>
+        <div class="flex items-center space-x-4">
+          <a href="#download" class="hidden md:block bg-accent text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-600 transition-colors duration-300">Download Now</a>
+          <button id="menu-toggle" class="md:hidden focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md">
+      <div class="container mx-auto px-6 py-4">
+        <ul class="space-y-4 text-sm font-medium">
+          <li><a href="index.html" class="nav-link block py-2 text-primary hover:text-accent transition-colors duration-300">Home</a></li>
+          <li><a href="about.html" class="nav-link block py-2 text-primary hover:text-accent transition-colors duration-300">About Us</a></li>
+          <li><a href="contact.html" class="nav-link block py-2 text-primary hover:text-accent transition-colors duration-300">Contact Us</a></li>
+          <li><a href="buy.html" class="nav-link block py-2 text-primary hover:text-accent transition-colors duration-300">Buy Now</a></li>
+          <li><a href="#download" class="nav-link block py-2 text-primary hover:text-accent transition-colors duration-300">Download App</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  
+  <script>
+    const links = document.querySelectorAll('.nav-link');
+    const path = window.location.pathname.split("/").pop() || "index.html";
+  
+    links.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === path) {
+        link.classList.add("text-accent", "font-semibold");
+  
+        const underline = link.querySelector(".active-underline");
+        if (underline) {
+          underline.classList.remove("scale-x-0");
+          underline.classList.add("scale-x-100");
+        }
+      }
+    });
+  </script>
+  
+  
+
+  <main class="pt-32 pb-16 flex flex-col items-center justify-center min-h-screen">
+    <div class="container mx-auto px-6">
+      <div class="bg-white rounded-3xl shadow-xl p-10 max-w-3xl mx-auto border border-gray-100">
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="md:w-1/2">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" alt="AR Glasses" 
+                 class="w-full rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="md:w-1/2 space-y-6">
+            <h1 class="text-4xl font-bold">Vision AR Glasses</h1>
+            <p class="text-secondary text-lg">Experience reality augmented with our revolutionary AR glasses</p>
+            
+            <ul class="space-y-3 text-secondary">
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-accent mt-0.5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Crystal clear AR display
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-accent mt-0.5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                All-day battery life
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-accent mt-0.5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Voice & touch controls
+              </li>
+            </ul>
+
+            <div class="pt-4">
+              <div class="text-3xl font-bold text-accent">$499<span class="text-lg text-secondary ml-2 line-through">$699</span></div>
+              <p class="text-green-500 font-medium">Limited Time Offer</p>
+            </div>
+
+            <button class="w-full bg-accent text-white py-4 rounded-xl font-bold hover:bg-blue-600 transition-colors duration-300 shadow-lg">
+              Purchase Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+     <!-- Download Section -->
+     <section id="download" class="mt-32 py-20 w-full bg-gradient-to-b from-light to-white">
+        <div class="container mx-auto px-6">
+          <div class="max-w-4xl mx-auto text-center reveal-element">
+            <span class="inline-block bg-gray-100 text-secondary text-xs font-medium px-3 py-1 rounded-full tracking-wide">Get Started</span>
+            <h2 class="text-4xl md:text-5xl font-bold mt-4">Download our app</h2>
+            <p class="text-secondary text-lg mt-6 max-w-2xl mx-auto">Experience Vision AR glasses with our companion app. Available for direct download.</p>
+            
+            <div class="mt-10 flex justify-center">
+              <a href="#download" class="flex items-center justify-center space-x-2 bg-accent text-white px-6 py-3 rounded-xl text-sm font-medium hover:bg-blue-600 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
+                </svg>
+                <span>Download from here</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+  </main>
+
+  <footer class="bg-primary text-white py-12">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Vision</h3>
+          <p class="text-gray-400 text-sm">Redefining augmented reality through innovative technology and design.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Product</h3>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="#features" class="hover:text-white transition-colors">Features</a></li>
+            <li><a href="#technology" class="hover:text-white transition-colors">Technology</a></li>
+            <li><a href="#design" class="hover:text-white transition-colors">Design</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Company</h3>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+            <li><a href="#careers" class="hover:text-white transition-colors">Careers</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Legal</h3>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="#privacy" class="hover:text-white transition-colors">Privacy</a></li>
+            <li><a href="#terms" class="hover:text-white transition-colors">Terms</a></li>
+            <li><a href="#warranty" class="hover:text-white transition-colors">Warranty</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400 text-sm">
+        &copy; 2023 Vision AR. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

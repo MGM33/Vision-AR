@@ -1,0 +1,112 @@
+
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #0808db;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bounceTiny {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+/* Animations for scroll reveal */
+.reveal-element {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.reveal-element.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Other custom styles */
+.section-divider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.1), transparent);
+  margin: 2rem 0;
+}
+
+/* Glass effect */
+.glass {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark-glass {
+  backdrop-filter: blur(10px);
+  background: rgba(29, 29, 31, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Image hover effects */
+.hover-scale {
+  transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Button effects */
+.btn-hover {
+  transition: all 0.3s ease;
+}
+
+.btn-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
